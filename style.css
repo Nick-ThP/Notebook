@@ -1,0 +1,91 @@
+/* Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General */
+
+html {
+    background: url("background.svg") no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    padding: 20px 300px;
+}
+
+/* Header */
+
+header {
+    display: flex;
+}
+
+.heading {
+    font-family: 'Reenie Beanie', cursive;
+    margin: auto;
+}
+
+h1 {
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+/* Form */
+
+.new-note {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.note-title, .note-content {
+    display: block;
+    font-family: Helvetica, sans-serif;
+}
+
+.submit {
+    padding: 5px;
+}
+
+/* Notes */
+
+.saved-notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.individual-note {
+    flex-basis: 33.333%;
+    width: 100%;
+    padding: 20px;
+    height: 25rem;
+    overflow: scroll;
+    background-color: yellow;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.note-text p {
+    font-size: 1rem;
+    display: inline;
+    overflow-wrap: break-word;
+}
