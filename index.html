@@ -15,14 +15,15 @@
             <h2>A simple way to keep track of your thoughts</h2>
         </div>
     </header>
-    <section>
-        <form class="new-note-form">
-            <input type="text" class="note-title" placeholder="Note title" required>
-            <textarea class="note-content" placeholder="Note content" cols="20" rows="5" maxlength="2000" required></textarea>
-            <input type="submit" class="save-note" value="Save note">
-        </form>
-        <button class="clear-all">Clear all notes</button>
-    </section>
+    <form class="new-note-form">
+        <input type="text" class="note-title" placeholder="Note title" maxlength="30" required>
+        <textarea class="note-content" placeholder="Note content" cols="20" rows="5" maxlength="500" required></textarea>
+        <div class="button-row">
+            <button class="save-note">Save note to list</button>
+            <button class="clear-current">Clear this note</button>
+            <button class="delete-all">Delete all notes</button>
+        </div>
+    </form>
     <section class="saved-notes"></section>
     <script src="scripts.js"></script>
 </body>

@@ -1,8 +1,9 @@
-const newNoteForm = document.querySelector(".new-note-form");
-const savedNotes = document.querySelector(".saved-notes");
 const noteTitle = document.querySelector(".note-title");
 const noteContent = document.querySelector(".note-content");
-const clearAll = document.querySelector(".clear-all")
+const savedNotes = document.querySelector(".saved-notes");
+const saveNote = document.querySelector(".save-note")
+const clearCurrent = document.querySelector(".clear-current")
+const deleteAll = document.querySelector(".delete-all")
 
 const getNotes = () => {
   const notes = localStorage.getItem("notes");
@@ -13,32 +14,21 @@ const getNotes = () => {
   }
 };
 
-newNoteForm.addEventListener("submit", () => {
-  getNotes();
-  const noteObject = {
-    title: noteTitle.value,
-    content: noteContent.value
-  };
-  arrayOfNoteObjects.push(noteObject);
-  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
-  noteTitle.value = "";
-  noteContent.value = "";
-  showNotes();
-});
-
 showNotes = () => {
   getNotes();
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
     html += `
       <div class="individual-note">
-        <h3>Note ${index + 1}<h3>
-        <div class="note-text">
+        <div class="saved-note-content">
           <h3>${element.title}</h3>
           <p>${element.content}</p>
         </div>
-        <button class="${index} delete-button" onclick="deleteNote(this.id);">Delete note</button>
-        <button class="${index} edit-button" onclick="editNote(this.id);">Edit note</button>
+        <div class="saved-note-buttons">
+          <button class="${index} delete-button" onclick="deleteNote(this.id);">Delete note</button>
+          <button class="${index} edit-button" onclick="editNote(this.id);">Edit note</button>
+          <button class="${index} color-button" onclick="changeColor(this.id);">Change color</button>
+        </div>
       </div>
     `;
   });
@@ -52,6 +42,30 @@ showNotes = () => {
     `
   }
 };
+
+saveNote.addEventListener("click", () => {
+  getNotes();
+  const noteObject = {
+    title: noteTitle.value,
+    content: noteContent.value
+  };
+  arrayOfNoteObjects.push(noteObject);
+  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
+  noteTitle.value = "";
+  noteContent.value = "";
+  showNotes();
+});
+
+clearCurrent.addEventListener("click", () => {
+  noteTitle.value = "";
+  noteContent.value = "";
+})
+
+deleteAll.addEventListener("click", () => {
+  savedNotes.innerHTML = "";
+  localStorage.clear();
+  showNotes();
+});
 
 const deleteNote = (index) => {
   getNotes();
@@ -71,10 +85,13 @@ const editNote = (index) => {
   showNotes();
 };
 
-clearAll.addEventListener("click", () => {
-  savedNotes.innerHTML = "";
-  localStorage.clear();
+const changeColor = (index) => {
+  getNotes();
+  arrayOfNoteObjects.findIndex((element) => {
+    element.querySelector(".individual-note").style.backgroundColor = "green";
+  })
+  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
-});
+}
 
 showNotes();
