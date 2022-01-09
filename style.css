@@ -83,7 +83,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: space-between;
     width: 400px;
-    height: 20rem;
+    height: 25rem;
     overflow: hidden;
     background-color: yellow;
     font-family: Helvetica, sans-serif;
@@ -116,4 +116,10 @@ h1, h2, h3 {
 
 .no-notes {
     margin-bottom: 0;
+}
+
+/* Colors */
+
+.red-color {
+    background-color: red;
 }

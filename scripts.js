@@ -37,7 +37,7 @@ showNotes = () => {
   } else {
     savedNotes.innerHTML = `
       <div class="no-notes">
-        <h3>Please write a note to have it shown here!</h3>
+        <h3>Write a note to have it shown here!</h3>
       </div>
     `
   }
@@ -79,13 +79,16 @@ const deleteNote = (index) => {
 };
 
 const editNote = (index) => {
+  index = Number(index);
   getNotes();
-  arrayOfNoteObjects.findIndex((element, index) => {
-    if (this.index === element[index]) {
-      noteTitle.value = element.title,
-      noteContent.value = element.content
+  if (noteTitle.value !== "" || noteContent.value !== "") {
+    return alert("Please clear the form before editing a note");
+  } 
+  arrayOfNoteObjects.forEach((element, i) => {
+    if (i === index) {
+      noteTitle.value = element.title;
+      noteContent.value = element.content;
     }
-    console.log(this.index);
   });
   arrayOfNoteObjects.splice(index, 1);
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
@@ -93,8 +96,9 @@ const editNote = (index) => {
 };
 
 const changeColor = (index) => {
+  index = Number(index);
   getNotes();
-  document.querySelector(`.individual-note${index}`).style.backgroundColor = "red";
+  document.querySelector(`.individual-note${index}`).classList.add(".red-color");
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
 }
