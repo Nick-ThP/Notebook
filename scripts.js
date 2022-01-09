@@ -19,15 +19,15 @@ showNotes = () => {
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
     html += `
-      <div class="individual-note">
+      <div class="individual-note individual-note${index}">
         <div class="saved-note-content">
           <h3>${element.title}</h3>
           <p>${element.content}</p>
         </div>
         <div class="saved-note-buttons">
-          <button class="${index} delete-button" onclick="deleteNote(this.id);">Delete note</button>
-          <button class="${index} edit-button" onclick="editNote(this.id);">Edit note</button>
-          <button class="${index} color-button" onclick="changeColor(this.id);">Change color</button>
+          <button id="${index}" class="delete-button" onclick="deleteNote(this.id);">Delete note</button>
+          <button id="${index}" class="edit-button" onclick="editNote(this.id);">Edit note</button>
+          <button id="${index}" class="color-button" onclick="changeColor(this.id);">Change color</button>
         </div>
       </div>
     `;
@@ -44,6 +44,10 @@ showNotes = () => {
 };
 
 saveNote.addEventListener("click", () => {
+  if (noteTitle.value == "" || noteContent.value == "") {
+    alert("Please add information about your note")
+    return;
+  };
   getNotes();
   const noteObject = {
     title: noteTitle.value,
@@ -76,10 +80,13 @@ const deleteNote = (index) => {
 
 const editNote = (index) => {
   getNotes();
-  arrayOfNoteObjects.findIndex((element) => {
-    noteTitle.value = element.title,
-    noteContent.value = element.content
-  })
+  arrayOfNoteObjects.findIndex((element, index) => {
+    if (this.index === element[index]) {
+      noteTitle.value = element.title,
+      noteContent.value = element.content
+    }
+    console.log(this.index);
+  });
   arrayOfNoteObjects.splice(index, 1);
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
@@ -87,9 +94,7 @@ const editNote = (index) => {
 
 const changeColor = (index) => {
   getNotes();
-  arrayOfNoteObjects.findIndex((element) => {
-    element.querySelector(".individual-note").style.backgroundColor = "green";
-  })
+  document.querySelector(`.individual-note${index}`).style.backgroundColor = "red";
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
 }

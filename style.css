@@ -18,7 +18,7 @@ body {
     background-size: cover;
     min-height: 100vh;
     font-size: 16px;
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
 h1 {
@@ -47,7 +47,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    margin: 5rem 0;
+    margin: 4rem 0;
 }
 
 .note-title, .note-content {
@@ -79,22 +79,23 @@ h1, h2, h3 {
 }
 
 .individual-note {
-    width: 350px;
-    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 20rem;
     overflow: hidden;
     background-color: yellow;
     font-family: Helvetica, sans-serif;
     padding: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 860px) {
     .individual-note {
       width: 80vw;
     }
 }
-.saved-note-content {
-    text-align: start;
-}
+
 .saved-note-content p {
     text-align: start;
     margin: 2rem 0;
@@ -111,4 +112,8 @@ h1, h2, h3 {
     background-color: yellow;
     border: none;
     box-shadow: 2px 2px 5px;
+}
+
+.no-notes {
+    margin-bottom: 0;
 }
