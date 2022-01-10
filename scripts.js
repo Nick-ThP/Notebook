@@ -27,7 +27,6 @@ showNotes = () => {
         <div class="saved-note-buttons">
           <button id="${index}" class="delete-button" onclick="deleteNote(this.id);">Delete note</button>
           <button id="${index}" class="edit-button" onclick="editNote(this.id);">Edit note</button>
-          <button id="${index}" class="color-button" onclick="changeColor(this.id);">Change color</button>
         </div>
       </div>
     `;
@@ -45,7 +44,7 @@ showNotes = () => {
 
 saveNote.addEventListener("click", () => {
   if (noteTitle.value == "" || noteContent.value == "") {
-    alert("Please add information about your note")
+    alert("Please add sufficient information about your note")
     return;
   };
   getNotes();
@@ -94,13 +93,5 @@ const editNote = (index) => {
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
 };
-
-const changeColor = (index) => {
-  index = Number(index);
-  getNotes();
-  document.querySelector(`.individual-note${index}`).classList.add(".red-color");
-  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
-  showNotes();
-}
 
 showNotes();

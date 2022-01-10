@@ -51,8 +51,8 @@ h1, h2, h3 {
 }
 
 .note-title, .note-content {
+    font-size: 1rem;
     padding: 10px;
-    display: block;
     font-family: Helvetica, sans-serif;
 }
 
@@ -83,11 +83,12 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: space-between;
     width: 400px;
-    height: 25rem;
+    height: 30rem;
     overflow: hidden;
-    background-color: yellow;
+    background-color: ivory;
     font-family: Helvetica, sans-serif;
-    padding: 2rem;
+    padding: 3rem;
+    box-shadow: 0 0 5px black;
 }
 
 @media only screen and (max-width: 860px) {
@@ -96,9 +97,13 @@ h1, h2, h3 {
     }
 }
 
-.saved-note-content p {
+.saved-note-content {
     text-align: start;
+}
+
+.saved-note-content p {
     margin: 2rem 0;
+    font-family: Helvetica, sans-serif;
 }
 
 .saved-note-buttons {
@@ -109,17 +114,18 @@ h1, h2, h3 {
 .saved-note-buttons button {
     flex: 1;
     justify-content: space-evenly;
-    background-color: yellow;
-    border: none;
-    box-shadow: 2px 2px 5px;
+    padding: 8px;
+    background-color: ivory;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+}
+
+.saved-note-buttons button:hover {
+    color: tomato;
+    border: 2px solid tomato;
+    box-shadow: 2px 2px 5px tomato;
 }
 
 .no-notes {
     margin-bottom: 0;
-}
-
-/* Colors */
-
-.red-color {
-    background-color: red;
 }
