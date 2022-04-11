@@ -37,6 +37,19 @@ h1, h2, h3 {
     font-family: 'Reenie Beanie', cursive;
 }
 
+@media only screen and (max-width: 860px) {
+
+    h1 {
+        line-height: 0.5;
+        margin-bottom: 64px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+    
+}
+
 /* Form */
 
 .new-note-form {
@@ -92,9 +105,11 @@ h1, h2, h3 {
 }
 
 @media only screen and (max-width: 860px) {
+
     .individual-note {
       width: 80vw;
     }
+
 }
 
 .saved-note-content {
