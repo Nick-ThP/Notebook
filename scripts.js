@@ -19,18 +19,18 @@ showNotes = () => {
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
     html += `
-    <div class="container">
       <div class="individual-note individual-note${index}">
-        <div class="saved-note-content">
-          <h3>${element.title}</h3>
-          <p>${element.content}</p>
-        </div>
-        <div class="saved-note-buttons">
-          <i id="${index}" class="fas fa-trash delete-button" onclick="deleteNote(this.id);"></i>
-          <i id="${index}" class="fas fa-pen edit-button" onclick="editNote(this.id);"></i>
+        <div class="content">
+          <div class="saved-note-content">
+            <h3>${element.title}</h3>
+            <p>${element.content}</p>
+          </div>
+          <div class="saved-note-buttons">
+            <i id="${index}" class="fas fa-trash delete-button" onclick="deleteNote(this.id);"></i>
+            <i id="${index}" class="fas fa-pen edit-button" onclick="editNote(this.id);"></i>
+          </div>
         </div>
       </div>
-    </div>
     `;
   });
   if (arrayOfNoteObjects.length != 0) {

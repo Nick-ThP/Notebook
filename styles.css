@@ -32,6 +32,7 @@ h2 {
 
 h3 {
     font-size: 2rem;
+    line-height: 1;
 }
 
 h1, h2, h3 {
@@ -42,7 +43,8 @@ h1, h2, h3 {
 
     h1 {
         line-height: 0.5;
-        margin-bottom: 64px;
+        margin-top: 30px;
+        margin-bottom: 70px;
     }
 
     h2 {
@@ -91,10 +93,22 @@ textarea {
     flex-wrap: wrap;
 }
 
+.save-note {
+    flex: 2;
+    width: 100%;
+    border: 2px solid rgba( 0, 0, 0, 0.3);
+}
+
+.clear-current, .delete-all {
+    flex: 1;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    
+}
+
 .button-row button {
     background: none;
     padding: 10px;
-    border: 2px solid lightgray;
+    
     border-radius: 3px;
 }
 
@@ -107,13 +121,17 @@ textarea {
 @media only screen and (max-width: 860px) {
 
     .button-row button {
-        flex: 1;
         padding: 10px;
         width: 100%;
     }
 
     .new-note-form {
         padding: 1rem;
+    }
+
+    .save-note {
+        width: 100%;
+        border: 2px solid rgba( 0, 0, 0, 0.5);
     }
     
 }
@@ -135,6 +153,7 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     width: min(400px, 95vw);
     height: 400px;
     background: url("note2.png");
@@ -143,16 +162,23 @@ textarea {
     background-size: contain;
     overflow: hidden;
     font-family: Helvetica, sans-serif;
-    padding: 120px 50px;
+    padding: 120px 70px 120px 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    transform: rotate(-8.5deg);
 }
 
 .saved-note-content {
     text-align: start;
-    transform: rotate(-8.5deg);
 }
 
 .saved-note-content p {
-    margin: 2rem 0;
+    margin: 1rem 0 2rem 0;
     font-family: Helvetica, sans-serif;
 }
 
@@ -160,7 +186,6 @@ textarea {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
-    transform: rotate(-8.5deg);
 }
 
 .saved-note-buttons i {
