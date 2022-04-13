@@ -19,16 +19,18 @@ showNotes = () => {
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
     html += `
+    <div class="container">
       <div class="individual-note individual-note${index}">
         <div class="saved-note-content">
           <h3>${element.title}</h3>
           <p>${element.content}</p>
         </div>
         <div class="saved-note-buttons">
-          <button id="${index}" class="delete-button" onclick="deleteNote(this.id);">Delete note</button>
-          <button id="${index}" class="edit-button" onclick="editNote(this.id);">Edit note</button>
+          <i id="${index}" class="fas fa-trash delete-button" onclick="deleteNote(this.id);"></i>
+          <i id="${index}" class="fas fa-pen edit-button" onclick="editNote(this.id);"></i>
         </div>
       </div>
+    </div>
     `;
   });
   if (arrayOfNoteObjects.length != 0) {
@@ -43,7 +45,7 @@ showNotes = () => {
 };
 
 saveNote.addEventListener("click", () => {
-  if (noteTitle.value == "" || noteContent.value == "") {
+  if (noteTitle.value == "" && noteContent.value == "") {
     alert("Please add sufficient information about your note")
     return;
   };
@@ -65,9 +67,13 @@ clearCurrent.addEventListener("click", () => {
 })
 
 deleteAll.addEventListener("click", () => {
-  savedNotes.innerHTML = "";
-  localStorage.clear();
-  showNotes();
+  if (confirm('Are you sure you want to delete all notes?')) {
+    savedNotes.innerHTML = "";
+    localStorage.clear();
+    showNotes();
+  } else {
+    return;
+  }
 });
 
 const deleteNote = (index) => {
@@ -83,6 +89,7 @@ const editNote = (index) => {
   if (noteTitle.value !== "" || noteContent.value !== "") {
     return alert("Please clear the form before editing a note");
   } 
+  window.scroll(0,0);
   arrayOfNoteObjects.forEach((element, i) => {
     if (i === index) {
       noteTitle.value = element.title;
