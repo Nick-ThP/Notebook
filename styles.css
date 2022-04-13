@@ -41,6 +41,10 @@ h1, h2, h3 {
 
 @media only screen and (max-width: 860px) {
 
+    body {
+        padding: 4rem 0rem 2rem 0rem;
+    }
+    
     h1 {
         line-height: 0.5;
         margin-top: 30px;
@@ -74,7 +78,7 @@ textarea {
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
-    padding: 2rem 5rem;
+    padding: 2rem 7rem;
 }
 
 .note-title, .note-content {
@@ -93,29 +97,34 @@ textarea {
     flex-wrap: wrap;
 }
 
+.button-row button {
+    background: none;
+    padding: 10px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
 .save-note {
     flex: 2;
     width: 100%;
-    border: 2px solid rgba( 0, 0, 0, 0.3);
+    border: 2px solid rgba( 0, 0, 0, 0.5);
+}
+
+.save-note:hover {
+    color: black;
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px black;
 }
 
 .clear-current, .delete-all {
     flex: 1;
     border: 2px solid rgba(255, 0, 0, 0.3);
-    
 }
 
-.button-row button {
-    background: none;
-    padding: 10px;
-    
-    border-radius: 3px;
-}
-
-.button-row button:hover {
-    color: tomato;
-    border: 2px solid tomato;
-    box-shadow: 2px 2px 5px tomato;
+.clear-current:hover, .delete-all:hover {
+    color: red;
+    border: 2px solid red;
+    box-shadow: 2px 2px 5px red;
 }
 
 @media only screen and (max-width: 860px) {
@@ -127,6 +136,7 @@ textarea {
 
     .new-note-form {
         padding: 1rem;
+        margin: 4rem 0rem 2rem 0rem;
     }
 
     .save-note {
@@ -194,14 +204,26 @@ textarea {
 }
 
 .saved-note-buttons i:hover {
-    color: tomato;
     transform: scale(1.3);
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .no-notes {
     color: black;
-    opacity: 0.7;
+    opacity: 0.9;
     margin-bottom: 0;
     padding: 0 2rem;
+}
+
+@media only screen and (max-width: 860px) {
+
+    .saved-notes {
+        gap: 0.5rem;
+    }
+
+    .individual-note { 
+        height: 350px;
+    }
+
 }
