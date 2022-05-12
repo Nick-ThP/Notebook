@@ -14,20 +14,44 @@ const getNotes = () => {
   }
 };
 
+let arrayOfNoteObjects = [
+  {
+    noteObject: {
+      title: "This is a test",
+      content: "this is a test"
+    }
+  },
+  {
+    noteObject: {
+      title: "This is a test",
+      content: "this is a test"
+    }
+  }
+]
+
 showNotes = () => {
   getNotes();
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
+    if (Number(index) === 0) {
+      element.arrowUp = "transparent";
+    }
+    if (Number(index) === (arrayOfNoteObjects.length - 1)) {
+      element.arrowDown = "transparent";
+    }
     html += `
-      <div class="individual-note individual-note${index}">
+      <div class="individual-note individual-note${index} ${element.transparency}">
         <div class="content">
           <div class="saved-note-content">
             <h3>${element.title}</h3>
             <p>${element.content}</p>
           </div>
-          <div class="saved-note-buttons">
-            <i id="${index}" class="fas fa-trash delete-button" onclick="deleteNote(this.id);"></i>
-            <i id="${index}" class="fas fa-pen edit-button" onclick="editNote(this.id);"></i>
+          <div class="saved-note-buttons">            
+              <img src="${element.src}" id="${index}" class="image-icon" onclick="toggleCheckmark(this.id);">
+              <i id="${index}" class="fas fa-angle-up arrow-icon ${element.arrowUp}" onclick="moveUp(this.id);"></i>
+              <i id="${index}" class="fas fa-angle-down arrow-icon ${element.arrowDown}" onclick="moveDown(this.id);"></i>
+              <i id="${index}" class="fas fa-pen other-icon" onclick="editNote(this.id);"></i>
+              <i id="${index}" class="fas fa-trash other-icon" onclick="deleteNote(this.id);"></i>
           </div>
         </div>
       </div>
@@ -52,7 +76,11 @@ saveNote.addEventListener("click", () => {
   getNotes();
   const noteObject = {
     title: noteTitle.value,
-    content: noteContent.value
+    content: noteContent.value,
+    transparency: "",
+    src: "unchecked.svg",
+    arrowUp: "",
+    arrowDown: ""
   };
   arrayOfNoteObjects.push(noteObject);
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
@@ -75,6 +103,43 @@ deleteAll.addEventListener("click", () => {
     return;
   }
 });
+
+// Individual notes
+
+const toggleCheckmark = (index) => {
+  getNotes();
+  if (arrayOfNoteObjects[index].src === "unchecked.svg") {
+    arrayOfNoteObjects[index].src = "checked.svg"
+    arrayOfNoteObjects[index].transparency = "transparent"
+  } else {
+    arrayOfNoteObjects[index].src = "unchecked.svg"
+    arrayOfNoteObjects[index].transparency = ""
+  }  
+  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
+  showNotes();
+};
+
+const moveUp = (index) => {
+  getNotes();
+  let element = arrayOfNoteObjects[index]
+  if (index > 0) {
+    arrayOfNoteObjects.splice(index, 1);
+    arrayOfNoteObjects.splice((Number(index) - 1), 0, element);
+  }
+  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
+  showNotes();
+};
+
+const moveDown = (index) => {
+  getNotes();
+  let element = arrayOfNoteObjects[index]
+  if (index < (arrayOfNoteObjects.length - 1)) {
+    arrayOfNoteObjects.splice(index, 1);
+    arrayOfNoteObjects.splice(parseInt(Number(index) + 1), 0, element);
+  }
+  localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
+  showNotes();
+};
 
 const deleteNote = (index) => {
   getNotes();
