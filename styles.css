@@ -113,7 +113,7 @@ textarea {
 .save-note:hover {
     color: black;
     border: 2px solid black;
-    box-shadow: 1px 1px 5px black;
+    box-shadow: 1px 1px 3px black;
 }
 
 .clear-current, .delete-all {
