@@ -8,36 +8,21 @@ const deleteAll = document.querySelector(".delete-all")
 const getNotes = () => {
   const notes = localStorage.getItem("notes");
   if (notes == null) {
-    arrayOfNoteObjects = [{"title":"Remember to buy present","content":"Remember to buy a present for the weekend birthday party (also remember to iron a shirt).","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""},{"title":"Grocery list for today","content":"Milk, cheese, bread, avocado, eggs, skyr, bananas, apples, coffee, tea, tomatoes, onions, cabbage.","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""},{"title":"Call the bank","content":"Call the bank before they close today (maybe during lunch break). Remember to ask about depositing.","transparency":"transparent","src":"checked.svg","arrowUp":"","arrowDown":""},{"title":"Chores to do later","content":"Vacuum, dust the surfaces, do the dishes, do the laundry, water the plants, fix the broken door handle.","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""}];
+    arrayOfNoteObjects = [{"title":"Remember to buy a gift","content":"Remember to buy a gift for the weekend birthday party (also remember to iron a shirt).","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""},{"title":"Grocery list for today","content":"Milk, cheese, bread, avocado, eggs, skyr, bananas, apples, coffee, tea, tomatoes, onions, cabbage.","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""},{"title":"Call the bank","content":"Call the bank before they close today (maybe during lunch break). Remember to ask about depositing.","transparency":"transparent","src":"checked.svg","arrowUp":"","arrowDown":""},{"title":"Chores to do later","content":"Vacuum, dust the surfaces, do the dishes, do the laundry, water the plants, fix the broken door handle.","transparency":"","src":"unchecked.svg","arrowUp":"","arrowDown":""}];
   } else {
     arrayOfNoteObjects = JSON.parse(notes);
   }
 };
-
-let arrayOfNoteObjects = [
-  {
-    noteObject: {
-      title: "This is a test",
-      content: "this is a test"
-    }
-  },
-  {
-    noteObject: {
-      title: "This is a test",
-      content: "this is a test"
-    }
-  }
-]
 
 showNotes = () => {
   getNotes();
   let html = "";
   arrayOfNoteObjects.forEach((element, index) => {
     if (Number(index) === 0) {
-      element.arrowUp = "transparent";
+      element.arrowUp = "extraTransparent";
     }
     if (Number(index) === (arrayOfNoteObjects.length - 1)) {
-      element.arrowDown = "transparent";
+      element.arrowDown = "extraTransparent";
     }
     html += `
       <div class="individual-note individual-note${index} ${element.transparency}">

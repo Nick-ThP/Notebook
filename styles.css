@@ -113,7 +113,7 @@ textarea {
 .save-note:hover {
     color: black;
     border: 2px solid black;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 1px 1px 5px black;
 }
 
 .clear-current, .delete-all {
@@ -124,7 +124,7 @@ textarea {
 .clear-current:hover, .delete-all:hover {
     color: red;
     border: 2px solid red;
-    box-shadow: 2px 2px 5px red;
+    box-shadow: 1px 1px 3px red;
 }
 
 @media only screen and (max-width: 860px) {
@@ -231,6 +231,10 @@ textarea {
 
 .transparent {
     opacity: 0.5;
+}
+
+.extraTransparent {
+    opacity: 0.2;
 }
 
 @media only screen and (max-width: 860px) {
