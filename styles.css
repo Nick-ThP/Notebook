@@ -42,13 +42,13 @@ h1, h2, h3 {
 @media only screen and (max-width: 860px) {
 
     body {
-        padding: 4rem 0rem 2rem 0rem;
+        padding: 2rem 0rem 2rem 0rem;
     }
     
     h1 {
         line-height: 0.5;
-        margin-top: 30px;
-        margin-bottom: 70px;
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
     }
 
     h2 {
@@ -136,7 +136,7 @@ textarea {
 
     .new-note-form {
         padding: 1rem;
-        margin: 4rem 0rem 2rem 0rem;
+        margin: 2rem 0rem 2rem 0rem;
     }
 
     .save-note {
