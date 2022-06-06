@@ -234,7 +234,7 @@ textarea {
 }
 
 .extraTransparent {
-    opacity: 0.1;
+    opacity: 0.25;
 }
 
 @media only screen and (max-width: 860px) {
