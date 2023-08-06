@@ -14,7 +14,7 @@ body {
 	align-items: center;
 	text-align: center;
 	flex-direction: column;
-	background: url("background.svg");
+	background: url("background.svg") fixed;
 	background-size: cover;
 	min-height: 100%;
 	font-size: 16px;
@@ -244,6 +244,11 @@ textarea {
 }
 
 @media only screen and (max-width: 860px) {
+
+	body {
+		background: none;
+		background-color: #85c5b0
+	}
 
 	.saved-notes {
 		gap: 0.5rem;
