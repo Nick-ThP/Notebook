@@ -31,7 +31,7 @@ showNotes = () => {
             <h3>${element.title}</h3>
             <p>${element.content}</p>
           </div>
-          <div class="saved-note-buttons">            
+          <div class="saved-note-buttons">
               <img src="${element.src}" id="${index}" class="image-icon" onclick="toggleCheckmark(this.id);">
               <i id="${index}" class="fas fa-angle-up arrow-icon ${element.arrowUp}" onclick="moveUp(this.id);"></i>
               <i id="${index}" class="fas fa-angle-down arrow-icon ${element.arrowDown}" onclick="moveDown(this.id);"></i>
@@ -99,7 +99,7 @@ const toggleCheckmark = (index) => {
   } else {
     arrayOfNoteObjects[index].src = "unchecked.svg"
     arrayOfNoteObjects[index].transparency = ""
-  }  
+  }
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
 };
@@ -138,7 +138,7 @@ const editNote = (index) => {
   getNotes();
   if (noteTitle.value !== "" || noteContent.value !== "") {
     return alert("Please clear the form before editing a note");
-  } 
+  }
   window.scroll(0,0);
   arrayOfNoteObjects.forEach((element, i) => {
     if (i === index) {
@@ -150,5 +150,14 @@ const editNote = (index) => {
   localStorage.setItem("notes", JSON.stringify(arrayOfNoteObjects));
   showNotes();
 };
+
+function adjustViewportHeight() {
+	const vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Adjust viewport height when the window is resized or when the page loads
+window.addEventListener('resize', adjustViewportHeight);
+window.addEventListener('load', adjustViewportHeight);
 
 showNotes();
