@@ -1,250 +1,256 @@
 /* Reset */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /* General */
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    background: url("background.svg") fixed;
-    background-size: cover;
-    min-height: 100vh;
-    font-size: 16px;
-    padding: 4rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	background: url("background.svg") fixed;
+	background-size: cover;
+	min-height: 100%;
+	font-size: 16px;
+	padding: 4rem 0;
 }
 
 h1 {
-    font-size: 8rem;
-    margin-bottom: 20px;
+	font-size: 8rem;
+	margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 h3 {
-    font-size: 2rem;
-    line-height: 1;
+	font-size: 2rem;
+	line-height: 1;
 }
 
-h1, h2, h3 {
-    font-family: 'Reenie Beanie', cursive;
+h1,
+h2,
+h3 {
+	font-family: 'Reenie Beanie', cursive;
 }
 
 @media only screen and (max-width: 860px) {
 
-    body {
-        padding: 2rem 0rem 2rem 0rem;
-    }
-    
-    h1 {
-        line-height: 0.5;
-        margin-top: 1.5rem;
-        margin-bottom: 2.5rem;
-    }
+	body {
+		padding: 2rem 0rem 2rem 0rem;
+	}
 
-    h2 {
-        font-size: 2rem;
-        padding: 0 2rem;
-    }
-    
+	h1 {
+		line-height: 0.5;
+		margin-top: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+		padding: 0 2rem;
+	}
+
 }
 
 /* Form */
 
 textarea {
-    resize: none;
+	resize: none;
 }
 
 .new-note-form {
-    font-size: 1.2rem;
-    width: min(600px, 100vw);
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    margin: 4rem 0;
-    border-radius: 1%;
-    background: url("note.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
-    padding: 2rem 7rem;
+	font-size: 1.2rem;
+	width: min(600px, 100vw);
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	margin: 4rem 0;
+	border-radius: 1%;
+	background: url("note.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+	padding: 2rem 7rem;
 }
 
-.note-title, .note-content {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-family: Helvetica, sans-serif;
+.note-title,
+.note-content {
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-family: Helvetica, sans-serif;
 }
 
 .button-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: space-between;
+	gap: 5px;
+	flex-wrap: wrap;
 }
 
 .button-row button {
-    background: none;
-    padding: 10px;
-    border-radius: 3px;
-    transition: 0.3s;
+	background: none;
+	padding: 10px;
+	border-radius: 3px;
+	transition: 0.3s;
 }
 
 .save-note {
-    flex: 2;
-    width: 100%;
-    border: 2px solid rgba( 0, 0, 0, 0.7);
+	flex: 2;
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0.7);
 }
 
 .save-note:hover {
-    color: black;
-    border: 2px solid black;
-    box-shadow: 1px 1px 3px black;
+	color: black;
+	border: 2px solid black;
+	box-shadow: 1px 1px 3px black;
 }
 
-.clear-current, .delete-all {
-    flex: 1;
-    border: 2px solid rgba(255, 0, 0, 0.3);
+.clear-current,
+.delete-all {
+	flex: 1;
+	border: 2px solid rgba(255, 0, 0, 0.3);
 }
 
-.clear-current:hover, .delete-all:hover {
-    color: red;
-    border: 2px solid red;
-    box-shadow: 1px 1px 3px red;
+.clear-current:hover,
+.delete-all:hover {
+	color: red;
+	border: 2px solid red;
+	box-shadow: 1px 1px 3px red;
 }
 
 @media only screen and (max-width: 860px) {
 
-    .button-row button {
-        padding: 10px;
-        width: 100%;
-    }
+	.button-row button {
+		padding: 10px;
+		width: 100%;
+	}
 
-    .new-note-form {
-        padding: 1rem;
-        margin: 2rem 0rem 2rem 0rem;
-    }
+	.new-note-form {
+		padding: 1rem;
+		margin: 2rem 0rem 2rem 0rem;
+	}
 
-    .save-note {
-        width: 100%;
-        border: 2px solid rgba( 0, 0, 0, 0.5);
-    }
-    
+	.save-note {
+		width: 100%;
+		border: 2px solid rgba(0, 0, 0, 0.5);
+	}
+
 }
 
 /* Notes */
 
 .saved-notes {
-    flex: 1;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+	flex: 1;
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .individual-note {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    width: min(400px, 95vw);
-    height: 400px;
-    background: url("note2.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    overflow: hidden;
-    font-family: Helvetica, sans-serif;
-    padding: 120px 75px 120px 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	width: min(400px, 95vw);
+	height: 400px;
+	background: url("note2.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	overflow: hidden;
+	font-family: Helvetica, sans-serif;
+	padding: 120px 75px 120px 50px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    transform: rotate(-8.5deg);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+	transform: rotate(-8.5deg);
 }
 
 .saved-note-content {
-    text-align: start;
+	text-align: start;
 }
 
 .saved-note-content p {
-    margin: 1rem 0 2rem 0;
-    font-family: Helvetica, sans-serif;
+	margin: 1rem 0 2rem 0;
+	font-family: Helvetica, sans-serif;
 }
 
 .saved-note-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
 }
 
 .image-icon {
-    height: 2.3rem;
-    width: auto;
-    align-items: center
+	height: 2.3rem;
+	width: auto;
+	align-items: center
 }
 
 .arrow-icon {
-    font-size: 2.5rem;
-    padding: 0px 8px 8px 8px;
-    align-items: center;
+	font-size: 2.5rem;
+	padding: 0px 8px 8px 8px;
+	align-items: center;
 }
 
 .other-icon {
-    font-size: 1.5rem;
-    padding: 8px;
-    align-items: center
+	font-size: 1.5rem;
+	padding: 8px;
+	align-items: center
 }
 
-.saved-note-buttons i:hover, .saved-note-buttons img:hover {
-    transform: scale(1.3);
-    cursor: pointer;
-    transition: 0.3s;
+.saved-note-buttons i:hover,
+.saved-note-buttons img:hover {
+	transform: scale(1.3);
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .no-notes {
-    color: black;
-    opacity: 0.9;
-    margin-bottom: 0;
-    padding: 0 2rem;
+	color: black;
+	opacity: 0.9;
+	margin-bottom: 0;
+	padding: 0 2rem;
 }
 
 .transparent {
-    opacity: 0.4;
+	opacity: 0.4;
 }
 
 .extraTransparent {
-    opacity: 0.25;
+	opacity: 0.25;
 }
 
 @media only screen and (max-width: 860px) {
 
-    .saved-notes {
-        gap: 0.5rem;
-    }
+	.saved-notes {
+		gap: 0.5rem;
+	}
 
-    .individual-note { 
-        height: 350px;
-    }
+	.individual-note {
+		height: 350px;
+	}
 
 }
