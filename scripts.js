@@ -151,13 +151,4 @@ const editNote = (index) => {
   showNotes();
 };
 
-function adjustViewportHeight() {
-	const vh = window.innerHeight * 0.01;
-	document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-
-// Adjust viewport height when the window is resized or when the page loads
-window.addEventListener('resize', adjustViewportHeight);
-window.addEventListener('load', adjustViewportHeight);
-
 showNotes();
